@@ -1,0 +1,26 @@
+﻿<template>
+  <div id="app">
+   
+    <router-view/>
+    <bar class="bar"></bar>
+  </div>
+</template>
+
+<script>
+  import bar from '../src/components/bar'
+export default {
+
+
+  name: 'app',
+  components:{
+          bar
+  }
+}
+</script>
+
+<style>
+#app {
+
+}
+
+</style>
