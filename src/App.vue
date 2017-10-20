@@ -14,6 +14,9 @@ export default {
   name: 'app',
   components:{
           bar
+  },
+  beforeCreate:function(){
+  	this.$router.push("/主页");
   }
 }
 </script>

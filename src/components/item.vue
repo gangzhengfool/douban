@@ -1,8 +1,8 @@
 ﻿<template>
-  <div id="item">
-  	<span v-show="imgshow"><slot  name="normal" > </slot></span><br>
-  	<span v-show ="!imgshow"><slot  name="active" > </slot></span><br>
-  	<span>{{ txt }}</span>
+  <div id="item"  @click="fn">
+  	<span v-show="!imgshow"><slot  name="normal"> </slot><br></span>
+  	<span v-show ="imgshow"><slot  name="active" > </slot><br></span>
+  	<span :class="{active:imgshow}">{{ txt }}</span>
   </div>
 </template>
 <script>
@@ -11,9 +11,22 @@ export default {
   props:["txt","title"],
   computed:{
   	imgshow:function(){
-  		return true;
-  	}
-  }
+  		return this.txt==this.title;
+  	},
+
+  },
+
+    methods:{
+      fn:function(){
+
+        //return "";
+      
+        this.$emit("change",this.txt);
+        
+
+      }
+    },
+  
 }
 </script>
 <style scoped>
@@ -25,5 +38,11 @@ export default {
       #item  img{
 	width: 40px;
 	
+}
+#item span{
+      text-align:center;
+}
+#item .active{
+  color: #5CFF66;
 }
 </style>
