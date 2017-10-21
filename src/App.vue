@@ -1,6 +1,6 @@
 ﻿<template>
   <div id="app">
-   
+
     <router-view/>
     <bar class="bar"></bar>
   </div>
@@ -22,8 +22,9 @@ export default {
 </script>
 
 <style>
-#app {
-
+* {
+    margin: 0;
+    padding: 0;
 }
 
 </style>

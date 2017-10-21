@@ -5,7 +5,8 @@ import mime from "../components/mine"
 import group from "../components/group"
 import status from "../components/status"
 import subject  from "../components/subject"
-
+import Movie from '../components/movie'
+import City from '../components/City'
 Vue.use(Router)
 
 export default new Router({
@@ -30,11 +31,16 @@ export default new Router({
       name: "status",
       component: status
     },
-          {
+    {
       path: '/书影音',
       name: "subject",
-      component: subject
+      component: subject,
+      children:[
+        {path: '', component :Movie},
+        {path: 'movie', component :Movie},
+        {path: 'city', component :City},
+        ]
     },
-   
+
   ]
 })

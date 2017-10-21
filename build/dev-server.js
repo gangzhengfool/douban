@@ -20,10 +20,31 @@ const autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 const proxyTable = config.dev.proxyTable
+var app = express()
 
-const app = express()
-const compiler = webpack(webpackConfig)
+var homeData=require('../src/data/homeData.json')
+var movie=require('../src/data/movie.json')
+var coming_soon=require('../src/data/coming_soon.json')
+var top250=require('../src/data/top250.json')
+var apiRoutes = express.Router()
+apiRoutes.get('/homeData',function (req,res) {
+  res.json({
+    data:homeData
+  })
+})
+apiRoutes.get('/movie',function (req,res) {
+  res.json({
+    data:movie
+  })
+})
+apiRoutes.get('/top250',function (req,res) {
+  res.json({
+    data:top250
+  })
+})
+app.use('/api',apiRoutes)
 
+var compiler = webpack(webpackConfig);
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true
@@ -67,6 +88,7 @@ const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.asset
 app.use(staticPath, express.static('./static'))
 
 const uri = 'http://localhost:' + port
+
 
 var _resolve
 var _reject
