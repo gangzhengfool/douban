@@ -1,8 +1,8 @@
 ﻿<template>
-  <div class="subject">
+  <div id="subject">
     <MyHeader title="書影音">
-      <img  id="subjectimg1" slot="img1" src="../assets/images/ic_group_search.png"/>
-      <img  id="subjectimg2"  slot="img2" src="../assets/images/ic_chat_green.png"/>
+      <img  class="subjectimg1" slot="img1" src="../assets/images/ic_group_search.png"/>
+      <img  class="subjectimg2"  slot="img2" src="../assets/images/ic_chat_green.png"/>
     </MyHeader>
     <div id="nav">
       <router-link to='/书影音/movie'>电影</router-link>
@@ -28,26 +28,30 @@
 </script>
 
 <style>
-
-  .subject img{
+  #subject{
+    width: 100%;
+    height: 100%;
+  }
+  #subject img{
     width:30px;
     top:10px;
   }
-  .subject #subjectimg1{
+  #subject .subjectimg1{
     position: fixed;
 
     right:70px;
   }
-  .subject #subjectimg2{
+  #subject .subjectimg2{
     position: fixed;
 
     right:20px;
   }
   #nav{
-    padding-left: 5%;
+    width: 100%;
+    display: block;
   }
   #nav a{
-    width: 16%;
+    width: 11%;
     display: block;
     float: left;
     text-decoration-line: none;

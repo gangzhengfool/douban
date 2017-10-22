@@ -37,6 +37,11 @@ apiRoutes.get('/movie',function (req,res) {
     data:movie
   })
 })
+apiRoutes.get('/coming_soon',function (req,res) {
+  res.json({
+    data:coming_soon
+  })
+})
 apiRoutes.get('/top250',function (req,res) {
   res.json({
     data:top250
